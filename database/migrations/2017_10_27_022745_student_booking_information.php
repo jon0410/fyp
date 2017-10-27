@@ -13,7 +13,7 @@ class StudentBookingInformation extends Migration
      */
     public function up()
     {
-        Schema::create('month_range', function (Blueprint $table) {
+        Schema::create('student_booking_information', function (Blueprint $table) {
             
             
             $table->string('std_id')->references('student_id')->on('room_student');
@@ -37,6 +37,6 @@ class StudentBookingInformation extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('program_detail');
+        Schema::dropIfExists('student_booking_information');
     }
 }

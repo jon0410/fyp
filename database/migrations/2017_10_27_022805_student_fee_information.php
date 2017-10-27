@@ -13,22 +13,21 @@ class StudentFeeInformation extends Migration
      */
     public function up()
     {
-        Schema::create('month_range', function (Blueprint $table) {
+        Schema::create('student_fee_information', function (Blueprint $table) {
             
             $table->string('std_id')->references('student_id')->on('room_student');
 
-            $table->integer('weekly/daily_rate')->references('weekly_rate')->on('option_detail');
-            $table->integer('rental_adjustment');
-            $table->integer('rental_fee/sem');
-            $table->integer('booking_fee_paid')->references('amount')->on('booking_fee');
-            $table->integer('payment_1');
-            $table->integer('payment_2');
-            $table->integer('payment_3');
-            $table->integer('payment_4');
-            $table->integer('outstanding_hostel_fee');
-            $table->integer('deposite_refund');
-
-            $table->string('sponsor')->references->('sponsorship_name')->on('sponsorship_list');
+            $table->float('weekly/daily_rate')->references('weekly_rate')->on('option_detail');
+            $table->float('rental_adjustment');
+            $table->float('rental_fee/sem');
+            $table->float('booking_fee_paid')->references('amount')->on('booking_fee');
+            $table->float('payment_1');
+            $table->float('payment_2');
+            $table->float('payment_3');
+            $table->float('payment_4');
+            $table->float('outstanding_hostel_fee');
+            $table->float('deposite_refund');
+            $table->string('sponsor')->references('sponsorship_name')->on('sponsorship_list');
 
             $table->primary('std_id');
         });
@@ -41,6 +40,6 @@ class StudentFeeInformation extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('program_detail');
+        Schema::dropIfExists('student_fee_information');
     }
 }

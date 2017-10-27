@@ -16,9 +16,9 @@ class RoomStatus extends Migration
         Schema::create('room_status', function (Blueprint $table) {
         $table->increments('id');
         $table->string('room_no');
-        $table->string('option_choice')->references('option')->on('option_detail');
-        $table->string('booking')->references('confirmation')->on('booking_confirm');
-        $table->string('tenancy')->references('tenancy_type')->on('tenancy_of_hotel');
+        $table->string('option_choice')->references('option')->on('option_detail')->nullable();
+        $table->string('booking')->references('confirmation')->on('booking_confirm')->nullable();
+        $table->string('tenancy')->references('tenancy_type')->on('tenancy_of_hotel')->nullable();
         
 
     });     }

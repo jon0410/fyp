@@ -13,7 +13,12 @@ class RoomStudent extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('room_student', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('room_no')->references('room_no')->on('room_status');
+            $table->string('student_id')->nullable();
+            
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class RoomStudent extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('room_student');
     }
 }
